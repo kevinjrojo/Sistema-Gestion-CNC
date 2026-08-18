@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --navy-950: #0a1428;
+    --navy-900: #0f1d3a;
+    --navy-700: #1a2f5a;
+    --navy-500: #2d4a7a;
+    --brand:    #4a90e2;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-800 antialiased;
+    font-family: "Inter", system-ui, sans-serif;
+  }
+
+  /* Scrollbar sutil */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { @apply bg-slate-300 rounded-full; }
+}
+
+@layer components {
+  /* Navbar base */
+  .navbar {
+    background: var(--navy-950);
+    @apply h-14 flex items-center justify-between px-7 shrink-0;
+  }
+
+  /* Card genérica */
+  .card {
+    @apply bg-white border border-slate-200 rounded-xl;
+  }
+
+  /* Badge de estado */
+  .badge-ok    { @apply text-xs px-2 py-0.5 rounded font-medium bg-green-100 text-green-700; }
+  .badge-bajo  { @apply text-xs px-2 py-0.5 rounded font-medium bg-amber-100 text-amber-700; }
+  .badge-empty { @apply text-xs px-2 py-0.5 rounded font-medium bg-red-100 text-red-700; }
+  .badge-op1   { @apply text-xs px-2 py-0.5 rounded font-medium bg-blue-100 text-blue-700; }
+  .badge-op2   { @apply text-xs px-2 py-0.5 rounded font-medium bg-violet-100 text-violet-700; }
+
+  /* Input / Select estilo unificado */
+  .input-base {
+    @apply h-9 w-full rounded-lg border border-slate-300 bg-white px-3 text-sm text-slate-800
+           placeholder:text-slate-400 focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500;
+  }
+
+  /* Botón primario oscuro */
+  .btn-primary {
+    @apply inline-flex items-center gap-1.5 rounded-lg bg-navy-950 px-4 py-2 text-sm
+           font-medium text-white transition hover:bg-navy-700 focus:outline-none;
+  }
+
+  /* Botón secundario */
+  .btn-secondary {
+    @apply inline-flex items-center gap-1.5 rounded-lg border border-slate-300 bg-white
+           px-3 py-1.5 text-xs text-slate-600 transition hover:bg-slate-50;
+  }
+
+  /* Fila de tabla base */
+  .table-row-base {
+    @apply border-b border-slate-100 last:border-0 hover:bg-slate-50 transition-colors;
+  }
+}
